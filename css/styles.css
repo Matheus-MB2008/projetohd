@@ -1,0 +1,262 @@
+/* reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* variáveis CSS */
+:root {
+    --color-light: #f4f4f4;
+    --color-orange: #ff6600;
+    --color-orange-alpha: rgba(255, 102, 0, .15);
+    --color-dark: #111;
+    --color-black: #000;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Quicksand", sans-serif;
+    background-color: var(--color-dark);
+}
+
+/* Formatações para elementos que sempre se repetem  */
+
+a {
+    color: var(--color-light);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+a:hover {
+    color: var(--color-orange);
+}
+
+ul, ol {
+    list-style: none;
+}
+
+
+
+/* hero da página */
+.hero {
+    height: 100dvh;
+    color: var(--color-light);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .3)),
+    url(../images/motos/banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.header-hero {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: var(--spacing-md);
+}
+
+.hero-menu {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.cta {
+    height: calc(100dvh - 100px);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+}
+
+.cta h2 {
+    font-size: 10vmin;
+}
+
+.cta p {
+    width: 50%;
+    font-size: 3vmin;
+    font-weight: 500;
+    line-height: 1.6;
+    text-wrap: balance;
+}
+
+.btn {
+    border: 2px solid var(--color-orange);
+    background-color: var(--color-orange-alpha);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: 80px;
+    transition: .5s;
+}
+
+.btn:hover {
+    background-color: transparent;
+}
+
+.setinha {
+    animation: arrow 2s infinite linear;
+}
+
+/* Animação da seta do cta */
+@keyframes arrow {
+    0%,
+    100% {
+        transform: translateY(-5px);
+    }
+
+    50% {
+        transform: translateY(5px);
+    }
+}
+
+
+
+.motos {
+     min-height: 100dvh;
+     width: 95%;
+     margin: var(--spacing-sm) auto;
+     padding: var(--spacing-md);
+     background-color: var(--color-dark);
+     color: var(--color-light);
+}
+
+.grid-motos {
+    width: 100%;
+    margin-block: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.moto-item {
+    border: 1px solid rgba(255, 102, 0, .3);
+    box-shadow: 0 0  10px var(--color-orange-alpha);
+    width: 30%;
+    padding: 25px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    text-align: center;
+    margin: var(--spacing-md);
+    animation: viewAnimation both;
+    animation-timeline: view(70% 20%);
+    transition: scale .5s;
+}
+
+.moto-item:hover {
+    scale: 1.05;
+}
+
+
+.motos h2 {
+    font-size: 8vmin;
+}
+
+.moto-item img {
+    width: 80%;
+    border-radius: 20px;
+}
+
+.moto-item p {
+    width: 80%;
+    text-wrap: balance;
+    line-height: 1.6;
+}
+.color-orange {
+    color: var(--color-orange);
+}
+
+
+@keyframes viewAnimation {
+    from {
+        opacity: 0;
+        transform: scale(.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+        
+    }
+}
+
+@media(width <= 900px){
+    .moto-item { 
+        width: 80%;
+    }
+}
+
+.galeria{
+    min-height: 100dvh;
+    color: var(--color-light);
+    width: 95%;
+    margin: auto;
+}
+
+.galeria h2{
+    font-size: 8vmin;
+    padding-block: var(--spacing-md);
+}
+
+.galeria-grid{
+    columns: 3 300px;
+    width: 95%;
+}
+
+.galeria-grid img{
+    width: 100%;
+    display: block;
+    margin: var(--spacing-md);
+    border-radius: 8px;
+    border: 1px dotted var(--color-orange-alpha);
+    filter:grayscale(1);
+    transition: .5s;
+    position: relative;
+    z-index: 1;
+}
+
+.galeria-grid:hover img {
+    filter: grayscale(0);
+    scale: 1.1;
+}
+.contato{
+    height: 300px;
+    background-color: var(--color-black);
+    margin-top: var(--spacing-lg);
+    color: var(--color-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: var(--spacing-lg);
+
+
+    h4{
+        font-size: 3vmin;
+    }
+
+    .icons{
+        display: flex;
+        gap:  var(--spacing-md);
+
+        i {
+            color: var(--color-dark);
+
+            &:hover{
+                color: var(--color-orange);
+            }
+        }
+    }
+}   
